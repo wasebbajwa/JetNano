@@ -17,15 +17,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
-#
-# Build this Dockerfile by running the following commands:
-#
-#     $ cd /path/to/your/jetson-inference
-#     $ docker/build.sh
-#
-# Also you should set your docker default-runtime to nvidia:
-#     https://github.com/dusty-nv/jetson-containers#docker-default-runtime
-#
 
 ARG BASE_IMAGE=nvcr.io/nvidia/l4t-pytorch:r32.4.3-pth1.6-py3
 FROM ${BASE_IMAGE}
@@ -78,19 +69,6 @@ RUN apt-get purge -y '*opencv*' || echo "previous OpenCV installation not found"
     cp -r /usr/lib/python3.6/dist-packages/cv2 /usr/local/lib/python3.6/dist-packages/cv2
     
     
-#
-# copy source
-#
-COPY c c
-COPY calibration calibration
-COPY examples examples
-COPY plugins plugins
-COPY python python
-COPY tools tools
-COPY utils utils
-
-COPY CMakeLists.txt CMakeLists.txt
-COPY CMakePreBuild.sh CMakePreBuild.sh
 
 
 #
