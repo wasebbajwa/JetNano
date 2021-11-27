@@ -1,0 +1,1 @@
+To build this Dockerfile, simply navigative to this directory and run Docker/build.sh. After creating the DockerFile, you have to run Docker/run.sh to activate the container. The file DockerReference in this directory is how your file should look. 
