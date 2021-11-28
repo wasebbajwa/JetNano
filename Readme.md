@@ -23,15 +23,18 @@ sudo fallocate -l 4G /mnt/4GB.swap
 sudo mkswap /mnt/4GB.swap
 sudo swapon /mnt/4GB.swap
 ```
+## MobileNet V1
+For this project, I used transfer learning in order to speed up the process of training. With the computing power and data I used for this project, it would be impossible to train an accurate object detection model. 
 
+![Three-ways-in-which-transfer-might-improve-learning](https://user-images.githubusercontent.com/70357685/143785100-bc11bb61-c398-4917-bd33-701328bd81d8.png)
 
+Transfer learning is so powerful because it allows you to have a much better start when training a model. It takes a pre trained model and freezes those layers in order to build on top of what the model already learned. CNN features in early stages are more general such as learning what edges or curves are , but they get more specific later on , which allows for a great use case for transfer learning. Especially in instances such as training on an edge device where you have low amounts of computing power and memory to work with.
+
+## MobileNet V1
+Mobilenet V1 is one of Google's models which is used for transfer learning. I chose Mobilenet as the architecture makes it very efficient for training and deploying on edge devices.
 
 ![alt text](https://user-images.githubusercontent.com/70357685/143724058-00dcfbd3-1077-43c4-815c-e9f843e2663f.JPG)
 
-![Capture](https://user-images.githubusercontent.com/70357685/143724059-0d6b1a41-4cf0-4176-9cce-1cc639d93218.JPG)
-
-![JetsonNano-DevKit_Front-Top_Right_trimmed](https://user-images.githubusercontent.com/70357685/143724062-3132ac08-b176-4f71-8278-bc2e4a628fe9.jpg)
+The bread and butter of Mobilenet is the Depthwise Seperable Convolution. In short, it allows for a huge reduction in computation power.  It also uses a variety of other neat tricks such as a Width Multiplier a to control the number of channels, Resolution Multiplier p for reduced representation, and it also has been tested on a variety of different datasets to show its efficacy. A general introduction to Mobilenet can be found here: https://towardsdatascience.com/review-mobilenetv1-depthwise-separable-convolution-light-weight-model-a382df364b69
 
 
-
-Special thanks to Dusty-NV and his Jetson-Inference repository which made learning the Jetson Nano so much easier!
