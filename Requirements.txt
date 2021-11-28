@@ -1,0 +1,2 @@
+Jetpack 4.6.1
+Deepstream 6.0
